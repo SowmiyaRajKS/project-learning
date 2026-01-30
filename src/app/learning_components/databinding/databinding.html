@@ -1,0 +1,14 @@
+<!--Data Binding-->
+<h2>Data Binding Component</h2>
+<ol>
+    <li>Property Binding</li>
+    <li>Event Binding</li>
+    <li>Two-way Binding</li>
+</ol>
+<p>{{userNameValue() }}  is trying Data binding</p>
+<input type="number" (input)="OnInput()" name ="firstval"[(ngModel)]="firstVal"/>
+<input type="number" (input)="OnInput()" name="secondval" [(ngModel)]="secondVal"/>
+<button [disabled]="isDisabled" (click)="onSubmit()">Submit</button>
+@if(sumValue() !== 0 && !isDisabled) {
+    <p>Sum: {{ sumValue() }}</p>
+}
