@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-4">
+        <input type="file" name="UploadFile" id="fileUpload" (change)="onFileUpload($event)">
+    </div>
+    <div class="col-3">
+        @if(uploadedFileName().length > 0) {
+            <img class="file-upload-image" [src]="uploadedFileName()" alt="Uploaded Image"/>
+        }
+    </div>
+</div>

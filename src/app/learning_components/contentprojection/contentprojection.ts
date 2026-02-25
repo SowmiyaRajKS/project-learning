@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { User } from '../../services/user';
 
 @Component({
   selector: 'app-contentprojection',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './contentprojection.scss',
 })
 export class Contentprojection {
+  userService = inject(User);
 
+  constructor(){
+    console.log(this.userService.userName);
+  }
 }

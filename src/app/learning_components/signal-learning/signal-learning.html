@@ -1,0 +1,64 @@
+<p>signal-learning works!</p>
+<div class="input-box">
+    <input type="text" name="fName" [(ngModel)]="fName">
+    <input type="text" name="mName" [(ngModel)]="mName">
+    <input type="text" name="lName" [(ngModel)]="lName">
+</div>
+<p>{{fullName()}}</p>
+<p>Total Price: {{totalPrice()}}</p>
+
+<div class="row">
+    <div class="col-3">
+        {{fName()}}
+    </div>
+    <div class="col-3">
+        <button (click)="changeValue()">Change Value</button>
+    </div>
+    <div class="col-3">
+        <button (click)="reset()">Reset</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        {{newPrice()}}
+    </div>
+    <div class="col-3">
+        <input type="text" name="productPrice" [(ngModel)]="productPrice"/>
+    </div>
+    <div class="col-3">
+        <button (click)="changeDiscount(20)">20%</button>
+    </div>
+    <div class="col-3">
+        <button (click)="changeDiscount(30)">30%</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3"> {{cityList()}} </div>
+    <div class="col-3">
+        <button (click)="addCity('Salem')">Salem</button>
+    </div>
+    <div class="col-3">
+        <button (click)="addCity('Cuddalore')">Cuddalore</button>
+    </div>
+    <div class="col-3">
+        <button (click)="removeCity()">Remove City</button>
+    </div>
+</div>
+
+<div class="formDiv">
+    <form [formGroup] = "userForm" (ngSubmit)="onSubmit()">
+        <div>User Name: <input type="text" formControlName="userName" ></div>
+        <div>User Id: <input type="text" formControlName="userId" ></div>
+        <button class="submitBtn">Submit</button>
+    </form>
+
+    <div>
+        <ul>
+            @for(user of userList(); track $index) {
+                <li>{{user.userId}} - {{user.userName}} | <button (click)="onDelete(user.userId)">Delete</button></li>
+            }
+        </ul>
+    </div>
+</div>

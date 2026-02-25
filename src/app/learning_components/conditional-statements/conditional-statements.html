@@ -1,0 +1,57 @@
+@for(users of userList; track users.id; let ind = $index; let isEven = $even;
+let isOdd = $odd; let isFirst = $first; ; let isLast = $last; let count = $count) {
+    <ul>
+        <li>ID: {{ ind }}</li>
+        <li>Name : {{ users.name }}</li>
+        <li>Email: {{ users.email }}</li>
+        <li>isOdd : {{ isOdd }}</li>
+        <li>isEven: {{isEven}}</li>
+        <li>isFirst: {{isFirst}}</li>
+        <li>isLast: {{isLast}}</li>
+        <li>count: {{count}}</li>
+    </ul>
+}
+@for(empty of emptyList; track $index) {
+    <p>{{empty}}</p>
+}
+@empty {
+    <p> No elements in the list</p>
+}
+@let cityValues = cityArray$ | async;
+@for(city of cityValues; track $index) {
+    {{city.id}} - {{ city.name}} <br/>
+}
+
+@for(cust of customers; track cust.id) {
+    @if(cust.isActive) {
+        {{cust.id }} - {{cust.name }} <br/>
+    }@else {
+        {{cust.name }} - Customer is not active.<br/>
+    }
+}
+<form [formGroup]="customerForm" (ngSubmit)="onSubmitForm()">
+    <div class="customerForm">
+        <p>Info Source: 
+            <input type="radio" value="fm" formControlName="infoSource"/> Radio
+            <input type="radio" value="newspaper" formControlName="infoSource"/> Newspaper
+            <input type="radio" value="tv" formControlName="infoSource"/> TV
+        </p>
+        <div class="inputText">
+            @switch(customerForm.get('infoSource')?.value) {
+                @case("fm") {
+                    Radio Name : <input type="text" formControlName="mediaName" class="textbox"/>
+                }
+                @case("newspaper") {
+                    Radio Name : <input type="text" formControlName="mediaName" class="textbox"/> 
+                }
+                @case("tv") {
+                    Radio Name : <input type="text" formControlName="mediaName" class="textbox"/>
+                }
+            }
+        </div>
+    </div>
+    <div class="btnClass">
+        <button class="submitBtn">Submit</button>
+    </div>
+</form>
+

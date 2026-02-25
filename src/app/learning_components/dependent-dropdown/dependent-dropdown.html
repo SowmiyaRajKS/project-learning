@@ -1,0 +1,17 @@
+<h2>Dependent Dropdown</h2>
+<div class="row">
+    <div class="col-3">
+        <label for="country">Country</label>
+        <select id="country" (change) = "onCountryChange($event)" [(ngModel)] = "selectedCountry">
+            <option value="" disabled>-- Select country --</option>
+            <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <label for="city">City</label>
+        <select id="city"  [(ngModel)] = "selectedCity" [disabled] = isCityDisabled>
+            <option value="" disabled>-- Select city --</option>
+            <option *ngFor="let city of cityList()" [value]="city">{{ city }}</option>
+        </select>
+    </div>
+</div>

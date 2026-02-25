@@ -1,12 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-import { Databinding } from './learning_components/databinding/databinding';
-import { Contentprojection } from './learning_components/contentprojection/contentprojection';
+import { RouterModule, RouterOutlet } from '@angular/router';
+// import { Databinding } from './learning_components/databinding/databinding';
+// import { Contentprojection } from './learning_components/contentprojection/contentprojection';
+// import { SignalLearning } from './learning_components/signal-learning/signal-learning';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, Databinding, Contentprojection],
+  imports: [RouterOutlet, FormsModule, RouterModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

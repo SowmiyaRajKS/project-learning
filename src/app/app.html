@@ -1,18 +1,60 @@
-<input type="text" name="userName" [(ngModel)]="userName" placeholder="Enter your name"/>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Angular Learning</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- ================= MAIN SECTION ================= -->
+  <div class="container-fluid layout-wrapper">
+    <div class="row">
+      <!-- ===== SIDEBAR ===== -->
+      <div class="col-md-3 col-lg-2 bg-light sidebar p-3 border-end">
+        <h5>Sidebar</h5>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/content-projection">Content Projection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/data-binding">Data Binding</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/signal-learning">Signal Learning</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/file-upload">File Upload</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dep-dropdown">Dep. Dropdown</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/change-detection">Change Detection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/conditional-statements">Conditional Statements</a>
+          </li>
+        </ul>
+      </div>
 
-<h3>Welcome, {{userName()}}</h3>
+      <!-- ===== MAIN CONTENT ===== -->
+      <div class="col-md-9 col-lg-10 p-4">
+        <!-- <h2>Main Content Area</h2>
+        <p>
+          This area takes the remaining width beside the sidebar.
+        </p>
 
-<app-databinding [userNameValue]="userName()" (submitted)="onSubmitted($event)"></app-databinding>
+        <div class="card">
+          <div class="card-body"> -->
+            <router-outlet></router-outlet>
+          <!-- </div>
+        </div> -->
+      </div>
 
-@if(this.isSubmitted()){
-  <h4> Calculation successfull - {{sumValue()}}</h4>
-}
-
-<app-contentprojection>
-  <div row1_col1>
-    This is for Row 1 Col 1
+    </div>
   </div>
-  <div row1_col2>
-    This is for Row 1 Col 2
-  </div>
-</app-contentprojection>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-dark text-white text-center py-3">
+    © 2026 Angular Learning | Footer Section
+  </footer>

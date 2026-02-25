@@ -1,5 +1,6 @@
-import { Component,input,output,signal } from '@angular/core';
+import { Component,inject,input,output,signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { User } from '../../services/user';
 
 interface SubmitPayload {
       isSuccess: boolean,
@@ -19,6 +20,12 @@ export class Databinding {
   sumValue = signal(0);
   userNameValue = input('', {transform: convertUpperCase})
   submitted = output<SubmitPayload>();
+  userService = inject(User);
+
+  constructor() {
+    this.userService.userName = 'Sowmi';
+    console.log(this.userService.userName);
+  }
 
   OnInput() {
     this.isDisabled = this.firstVal() <=0 || this.secondVal()<=0;
